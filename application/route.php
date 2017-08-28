@@ -9,13 +9,22 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+use think\Route;
+
+Route::rule(['hello','hello/:name'], function () {
+    return 'Hello,'.$name;
+});
+
 return [
-    '__pattern__' => [
-        'name' => '\w+',
+    '__pattern__'                                    =>    [
+        'id'                =>    '\d+',
     ],
-    '[hello]'     => [
-        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-        ':name' => ['index/hello', ['method' => 'post']],
-    ],
+    'user/index'                        =>    'index/user/index',
+    'user/create'                    =>    'index/user/create',
+    'user/add'                                =>    'index/user/add',
+    'user/add_list'            =>    'index/user/addList',
+    'user/update/:id'    =>    'index/user/update',
+    'user/delete/:id'    =>    'index/user/delete',
+    'user/:id'                                =>    'index/user/read',
 
 ];
