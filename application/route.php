@@ -11,6 +11,8 @@
 
 use think\Route;
 
+Route::resource('blogs','index/blog');
+Route::rule(':version/user/:id','api/:version.User/read');
 Route::rule(['hello','hello/:name'], function () {
     return 'Hello,'.$name;
 });
@@ -26,5 +28,7 @@ return [
     'user/update/:id'    =>    'index/user/update',
     'user/delete/:id'    =>    'index/user/delete',
     'user/:id'                                =>    'index/user/read',
+    'user/add_book'            =>    'index/user/addBook',
+    
 
 ];
