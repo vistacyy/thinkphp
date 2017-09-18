@@ -9,12 +9,6 @@ class Index extends Controller
 {
     public function index()
     {
-        // echo Url::build('hello','name=thinkphp');
-
-        Session::set('name', 'thinkphp');
-
-        echo Session::get('name').'<br />';
-        
         return 'It is works.';
     }
     // 验证码显示
