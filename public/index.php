@@ -27,16 +27,61 @@ $file="./readme.txt";
 // echo date_default_timezone_get();
 
 // Our closure
-$double = function($a) {
+function double($a)
+{
     return $a * 2;
 };
 
 // This is our range of numbers
 $numbers = range(1, 5);
 
-// Use the closure as a callback here to 
-// double the size of each element in our 
+// Use the closure as a callback here to
+// double the size of each element in our
 // range
-$new_numbers = array_map($double, $numbers);
+$new_numbers = array_map('double', $numbers);
 
-print implode(' ', $new_numbers);
+// print implode(' ', $new_numbers);
+
+// $arr1 = array(2, 3);
+// $arr2 = $arr1;
+// $arr2[] = 4;
+
+// var_dump($arr1);
+// echo '<br/>';
+// var_dump($arr2);
+// if (isset($_COOKIE['count'])) {
+//     $count = $_COOKIE['count'] + 1;
+// } else {
+//     $count = 1;
+// }
+// setcookie('count', $count, time()+3600);
+
+// class C
+// {
+// }
+
+// class D extends C
+// {
+// }
+
+// // This doesn't extend C.
+// class E
+// {
+// }
+
+// function f(C $c)
+// {
+//     echo get_class($c)."\n";
+// }
+
+// f(new C);
+// f(new D);
+// f(new E);
+
+function small_numbers()
+{
+    return array (0, 1, 2);
+}
+$list= small_numbers();
+
+var_dump($list);
