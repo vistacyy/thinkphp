@@ -18,38 +18,94 @@
 
 
 
-class Connection 
-{
-    protected $link;
-    private $server, $username, $password, $db;
-    
-    public function __construct($server, $username, $password, $db)
-    {
-        $this->server = $server;
-        $this->username = $username;
-        $this->password = $password;
-        $this->db = $db;
-        $this->connect();
-    }
-    
-    private function connect()
-    {
-        $this->link = mysql_connect($this->server, $this->username, $this->password);
-        mysql_select_db($this->db, $this->link);
-    }
-    
-    public function __sleep()
-    {
-        return array('server', 'username', 'password', 'db');
-    }
-    
-    public function __wakeup()
-    {
-        $this->connect();
+
+
+// class MyException extends Exception
+// {
+//     // 重定义构造器使 message 变为必须被指定的属性
+//     public function __construct($message, $code = 0, Exception $previous = null) {
+//         // 自定义的代码
+
+//         // 确保所有变量都被正确赋值
+//         parent::__construct($message, $code, $previous);
+//     }
+
+//     // 自定义字符串输出的样式
+//     public function __toString() {
+//         return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
+//     }
+
+//     public function customFunction() {
+//         echo "A custom function for this type of exception\n";
+//     }
+// }
+
+
+// /**
+//  * 创建一个用于测试异常处理机制的类
+//  */
+// class TestException
+// {
+//     public $var;
+
+//     const THROW_NONE    = 0;
+//     const THROW_CUSTOM  = 1;
+//     const THROW_DEFAULT = 2;
+
+//     function __construct($avalue = self::THROW_NONE) {
+
+//         switch ($avalue) {
+//             case self::THROW_CUSTOM:
+//                 // 抛出自定义异常
+//                 throw new MyException('1 is an invalid parameter', 5);
+//                 break;
+
+//             case self::THROW_DEFAULT:
+//                 // 抛出默认的异常
+//                 throw new Exception('2 is not allowed as a parameter', 6);
+//                 break;
+
+//             default: 
+//                 // 没有异常的情况下，创建一个对象
+//                 $this->var = $avalue;
+//                 break;
+//         }
+//     }
+// }
+
+// // 例子 1
+// try {
+//     $o = new TestException(TestException::THROW_CUSTOM);
+// } catch (MyException $e) {      // 捕获异常
+//     echo "Caught my exception\n", $e;
+//     $e->customFunction();
+// } catch (Exception $e) {        // 被忽略
+//     echo "Caught Default Exception\n", $e;
+// }
+
+// // Continue execution
+// var_dump($o); // Null
+// echo "\n\n";
+
+
+
+
+class MyException extends Exception { }
+
+class Test {
+    public function testing() {
+        try {
+            try {
+                throw new MyException('foo!');
+            } catch (MyException $e) {
+                // rethrow it
+                throw $e;
+            }
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+        }
     }
 }
 
-
-echo serialize(Connection);
-
-
+$foo = new Test;
+$foo->testing();
