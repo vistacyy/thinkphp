@@ -1,4 +1,4 @@
-// 去掉提示 
+// 去掉弹窗
 function openTishi(second) {
     if (second == randomTime) //随机时间提示
     {
