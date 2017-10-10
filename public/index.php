@@ -19,11 +19,6 @@
 // echo $_SERVER['SERVER_ADDR'] . ' ' . $_SERVER['SERVER_NAME'];
 
 
-<<<<<<< HEAD
-$array=[1,2,3];
-// print_r( array_values($array) );
-echo count($array);
-=======
 
 
 // class MyException extends Exception
@@ -115,4 +110,3 @@ class Test {
 
 $foo = new Test;
 $foo->testing();
->>>>>>> 950355c94ac4437865c036023c7998145bae9fb1
