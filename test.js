@@ -24,7 +24,7 @@ function DoConverseCallTimer() {
         second = begintime % 60;
         if (minute < "21") {
             document.form2.thzt.value = minute + "分" + second + "秒";
-            jQuery("#benci").html(minute + "分" + second + "秒" + " " + (randomTime - begintime)+"秒后存时间");
+            jQuery("#benci").html(minute + "分" + second + "秒" + " " + (randomTime - begintime)+"秒后记录时间");
         } else {
             document.form2.thzt.value = minute + "分" + second + "秒";
             return;
