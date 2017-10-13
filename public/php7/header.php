@@ -1,5 +1,3 @@
-<?php 
-echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,4 +7,3 @@ echo '
     <title>Base knowledge</title>
 </head>
 <body>
-';
